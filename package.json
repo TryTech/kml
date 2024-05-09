@@ -1,5 +1,5 @@
 {
-  "name": "kml",
+  "name": "@trytech/kml",
   "version": "1.0.0-development",
   "description": "A JavaScript library KML processor and converter",
   "main": "./lib/index.js",
