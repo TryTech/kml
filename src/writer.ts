@@ -5,7 +5,7 @@ import { KMLObject } from './interfaces';
 export const writer = (
   kmlObject: KMLObject,
   filePath: string
-): Promise<void | Error> => {
+): Promise<void> => {
   return new Promise((resolve, reject) => {
     const builder = new Builder();
     const xml = builder.buildObject(kmlObject);
