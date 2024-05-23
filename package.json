@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TryTech/kml"
+    "url": "git+https://github.com/TryTech/kml.git"
   },
   "license": "MIT",
   "author": {
