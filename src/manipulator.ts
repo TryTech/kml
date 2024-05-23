@@ -1,4 +1,9 @@
-export const manipulator = (kmlObject: any, newPlacemark: any): any => {
+import { KMLObject, Placemark } from './interfaces';
+
+export const manipulator = (
+  kmlObject: KMLObject,
+  newPlacemark: Placemark
+): any => {
   if (!kmlObject || !kmlObject.kml || !kmlObject.kml.Document) {
     throw new Error('Invalid KML object');
   }
