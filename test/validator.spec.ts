@@ -1,37 +1,38 @@
-import {validateKML} from "../src"
+import { validateKML } from '../src';
+import { KMLObject } from '../src/interfaces';
 
-const validKML = {
+const validKML: KMLObject = {
   kml: {
     Document: [
       {
-        name: ["Sample KML"],
         Placemark: [
           {
-            name: ["Sample Location"],
-            Point: [
-              {
-                coordinates: ["-122.0822035425683,37.42228990140251,0"]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
+            name: 'Sample Location',
+            description: 'This is a sample location',
+            Point: {
+              coordinates: ['-122.0841430,37.4220060,0'],
+            },
+          },
+        ],
+      },
+    ],
+  },
 };
 
-const invalidKMLNoDocument = {
-  kml: {}
+const invalidKMLNoDocument: KMLObject = {
+  kml: {
+    Document: [],
+  },
 };
 
-const invalidKMLNoPlacemark = {
+const invalidKMLNoPlacemark: KMLObject = {
   kml: {
     Document: [
       {
-        name: ["Sample KML"]
-      }
-    ]
-  }
+        Placemark: [],
+      },
+    ],
+  },
 };
 
 test('validateKML should validate a correct KML object', () => {
@@ -43,10 +44,16 @@ test('validateKML should throw an error for KML object without Document', () => 
 });
 
 test('validateKML should throw an error for KML object without Placemark', () => {
-  expect(() => validateKML(invalidKMLNoPlacemark)).toThrow('Invalid KML object: Placemark is missing or empty');
+  expect(() => validateKML(invalidKMLNoPlacemark)).toThrow(
+    'Invalid KML object: Placemark is missing or empty'
+  );
 });
 
 test('validateKML should throw an error for null or undefined KML object', () => {
-  expect(() => validateKML(null)).toThrow('Invalid KML object');
-  expect(() => validateKML(undefined)).toThrow('Invalid KML object');
+  expect(() => validateKML(null as unknown as KMLObject)).toThrow(
+    'Invalid KML object'
+  );
+  expect(() => validateKML(undefined as unknown as KMLObject)).toThrow(
+    'Invalid KML object'
+  );
 });

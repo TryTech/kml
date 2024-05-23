@@ -1,19 +1,4 @@
-export interface Point {
-  coordinates: string;
-}
-
-export interface Placemark {
-  name: string;
-  description: string;
-  Point: Point;
-}
-
-export interface Document {
-  Placemark: Placemark[];
-}
-
-export interface KMLObject {
-  kml: {
-    Document: Document[];
-  };
-}
+export * from './document';
+export * from './point';
+export * from './placemark';
+export * from './kml-object';
